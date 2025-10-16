@@ -130,7 +130,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -417,6 +417,91 @@
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2025/09/12/vim-configuration/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="穆琪">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="穆琪的博客">
+      <meta itemprop="description" content="程序员代码踩坑分享">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 穆琪的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/09/12/vim-configuration/" class="post-title-link" itemprop="url">vim-configuration</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-09-12 17:54:03" itemprop="dateCreated datePublished" datetime="2025-09-12T17:54:03+08:00">2025-09-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-10-16 17:56:58" itemprop="dateModified" datetime="2025-10-16T17:56:58+08:00">2025-10-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot; vundle config</span></span><br><span class="line"><span class="string">set nocompatible              &quot;</span> required</span><br><span class="line">filetype off                  <span class="string">&quot; required</span></span><br><span class="line"><span class="string">&quot;</span> <span class="built_in">set</span> the runtime path to include Vundle and initialize</span><br><span class="line"><span class="built_in">set</span> rtp+=~/.vim/bundle/Vundle.vim</span><br><span class="line">call vundle#begin()</span><br><span class="line"><span class="string">&quot; alternatively, pass a path where Vundle should install plugins</span></span><br><span class="line"><span class="string">&quot;</span>call vundle#begin(<span class="string">&#x27;~/some/path/here&#x27;</span>)</span><br><span class="line"><span class="string">&quot; let Vundle manage Vundle, required</span></span><br><span class="line"><span class="string">Plugin &#x27;VundleVim/Vundle.vim&#x27;</span></span><br><span class="line"><span class="string">Plugin &#x27;https://github.com/scrooloose/nerdtree&#x27;</span></span><br><span class="line"><span class="string">Plugin &#x27;kien/rainbow_parentheses.vim&#x27;</span></span><br><span class="line"><span class="string">Plugin &#x27;https://github.com/bling/vim-airline&#x27;</span></span><br><span class="line"><span class="string">&quot;</span> add all your plugins here (note older versions of Vundle</span><br><span class="line"><span class="string">&quot; used Bundle instead of Plugin)</span></span><br><span class="line"><span class="string">&quot;</span> All of your Plugins must be added before the following line</span><br><span class="line">call vundle#end()            <span class="string">&quot; required</span></span><br><span class="line"><span class="string">filetype plugin indent on    &quot;</span> required</span><br><span class="line"><span class="string">&quot; user config</span></span><br><span class="line"><span class="string">&quot;</span> 通用配置</span><br><span class="line">syntax on</span><br><span class="line"><span class="built_in">set</span> ic</span><br><span class="line"><span class="built_in">set</span> hlsearch</span><br><span class="line"><span class="built_in">set</span> encoding=utf-8</span><br><span class="line"><span class="built_in">set</span> fileencodings=utf-8,ucs-bom,GB2312,big5</span><br><span class="line"><span class="built_in">set</span> cursorline</span><br><span class="line"><span class="built_in">set</span> autoindent</span><br><span class="line"><span class="built_in">set</span> smartindent</span><br><span class="line"><span class="built_in">set</span> scrolloff=4</span><br><span class="line"><span class="built_in">set</span> showmatch</span><br><span class="line"><span class="built_in">set</span> nu</span><br><span class="line"><span class="string">&quot; python文件配置</span></span><br><span class="line"><span class="string">let python_highlight_all=1</span></span><br><span class="line"><span class="string">au Filetype python set tabstop=4</span></span><br><span class="line"><span class="string">au Filetype python set softtabstop=4</span></span><br><span class="line"><span class="string">au Filetype python set shiftwidth=4</span></span><br><span class="line"><span class="string">au Filetype python set textwidth=79</span></span><br><span class="line"><span class="string">au Filetype python set expandtab</span></span><br><span class="line"><span class="string">au Filetype python set autoindent</span></span><br><span class="line"><span class="string">au Filetype python set fileformat=unix</span></span><br><span class="line"><span class="string">autocmd Filetype python set foldmethod=indent</span></span><br><span class="line"><span class="string">autocmd Filetype python set foldlevel=99</span></span><br><span class="line"><span class="string">&quot;</span> 分割窗口配置</span><br><span class="line"><span class="built_in">set</span> splitbelow</span><br><span class="line"><span class="built_in">set</span> splitright</span><br><span class="line"><span class="string">&quot; split navigations</span></span><br><span class="line"><span class="string">nnoremap &lt;C-J&gt; &lt;C-W&gt;&lt;C-J&gt;</span></span><br><span class="line"><span class="string">nnoremap &lt;C-K&gt; &lt;C-W&gt;&lt;C-K&gt;</span></span><br><span class="line"><span class="string">nnoremap &lt;C-L&gt; &lt;C-W&gt;&lt;C-L&gt;</span></span><br><span class="line"><span class="string">nnoremap &lt;C-H&gt; &lt;C-W&gt;&lt;C-H&gt;</span></span><br><span class="line"><span class="string">&quot;</span> 代码折叠</span><br><span class="line"><span class="built_in">set</span> foldmethod=indent</span><br><span class="line"><span class="built_in">set</span> foldlevel=99</span><br><span class="line">nnoremap &lt;space&gt; za</span><br><span class="line"><span class="string">&quot; 文件树配置</span></span><br><span class="line"><span class="string">nnoremap &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</span></span><br><span class="line"><span class="string">autocmd bufenter * if (winnr(&quot;</span>$<span class="string">&quot;) == 1 &amp;&amp; exists(&quot;</span>b:NERDTree<span class="string">&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif</span></span><br><span class="line"><span class="string">&quot;</span> 括号匹配颜色配置</span><br><span class="line"><span class="built_in">let</span> g:rbpt_colorpairs = [</span><br><span class="line">                        \ [<span class="string">&#x27;brown&#x27;</span>,       <span class="string">&#x27;RoyalBlue3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;Darkblue&#x27;</span>,    <span class="string">&#x27;SeaGreen3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkgray&#x27;</span>,    <span class="string">&#x27;DarkOrchid3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkgreen&#x27;</span>,   <span class="string">&#x27;firebrick3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkcyan&#x27;</span>,    <span class="string">&#x27;RoyalBlue3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkred&#x27;</span>,     <span class="string">&#x27;SeaGreen3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkmagenta&#x27;</span>, <span class="string">&#x27;DarkOrchid3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;brown&#x27;</span>,       <span class="string">&#x27;firebrick3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;gray&#x27;</span>,        <span class="string">&#x27;RoyalBlue3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkmagenta&#x27;</span>, <span class="string">&#x27;DarkOrchid3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;Darkblue&#x27;</span>,    <span class="string">&#x27;firebrick3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkgreen&#x27;</span>,   <span class="string">&#x27;RoyalBlue3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkcyan&#x27;</span>,    <span class="string">&#x27;SeaGreen3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkred&#x27;</span>,     <span class="string">&#x27;DarkOrchid3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;red&#x27;</span>,         <span class="string">&#x27;firebrick3&#x27;</span>],</span><br><span class="line">                        \ ]</span><br><span class="line"><span class="built_in">let</span> g:rbpt_max = 16</span><br><span class="line"><span class="built_in">let</span> g:rbpt_loadcmd_toggle = 0</span><br><span class="line">au VimEnter * RainbowParenthesesToggle</span><br><span class="line">au Syntax * RainbowParenthesesLoadRound</span><br><span class="line">au Syntax * RainbowParenthesesLoadSquare</span><br><span class="line">au Syntax * RainbowParenthesesLoadBraces</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
