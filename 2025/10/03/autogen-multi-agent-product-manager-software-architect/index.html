@@ -19,24 +19,26 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"muqi.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="程序员代码踩坑分享">
-<meta property="og:type" content="website">
-<meta property="og:title" content="穆琪的博客">
-<meta property="og:url" content="https://muqi.github.io/index.html">
+    <meta name="description" content="背景在之前，我已经搭建了一个autogen的环境，现在要结合我的实际需求，使用agent进行app的设计。我预计做一个php的博客，替换掉我现在正在用的博客，代码编写由我自己使用ai完成，我会提出需求文档，现在需要一个产品经理和架构师帮我总结和设计应用架构。 实战项目结构1234.├── main.py├── output└── template.py 模板template.pytemplate.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="autogen实战多代理聊天：产品经理+软件架构师">
+<meta property="og:url" content="https://muqi.github.io/2025/10/03/autogen-multi-agent-product-manager-software-architect/index.html">
 <meta property="og:site_name" content="穆琪的博客">
-<meta property="og:description" content="程序员代码踩坑分享">
+<meta property="og:description" content="背景在之前，我已经搭建了一个autogen的环境，现在要结合我的实际需求，使用agent进行app的设计。我预计做一个php的博客，替换掉我现在正在用的博客，代码编写由我自己使用ai完成，我会提出需求文档，现在需要一个产品经理和架构师帮我总结和设计应用架构。 实战项目结构1234.├── main.py├── output└── template.py 模板template.pytemplate.">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-03T09:28:34.000Z">
+<meta property="article:modified_time" content="2025-10-16T09:30:18.694Z">
 <meta property="article:author" content="穆琪">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://muqi.github.io/">
+<link rel="canonical" href="https://muqi.github.io/2025/10/03/autogen-multi-agent-product-manager-software-architect/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://muqi.github.io/2025/10/03/autogen-multi-agent-product-manager-software-architect/","path":"2025/10/03/autogen-multi-agent-product-manager-software-architect/","title":"autogen实战多代理聊天：产品经理+软件架构师"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>穆琪的博客</title>
+<title>autogen实战多代理聊天：产品经理+软件架构师 | 穆琪的博客</title>
   
 
 
@@ -83,7 +85,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">穆琪的博客</h1>
+      <p class="site-title">穆琪的博客</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -105,7 +107,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -118,6 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">项目结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BFtemplate-py"><span class="nav-number">2.2.</span> <span class="nav-text">模板template.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0main-py"><span class="nav-number">2.3.</span> <span class="nav-text">逻辑实现main.py</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -152,16 +155,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2025/10/03/autogen-multi-agent-product-manager-software-architect/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -175,13 +179,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 穆琪的博客">
+      <meta itemprop="name" content="autogen实战多代理聊天：产品经理+软件架构师 | 穆琪的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/10/03/autogen-multi-agent-product-manager-software-architect/" class="post-title-link" itemprop="url">autogen实战多代理聊天：产品经理+软件架构师</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          autogen实战多代理聊天：产品经理+软件架构师
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -219,8 +223,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在之前，我已经搭建了一个autogen的环境，现在要结合我的实际需求，使用agent进行app的设计。<br>我预计做一个php的博客，替换掉我现在正在用的博客，代码编写由我自己使用ai完成，我会提出需求文档，现在需要一个产品经理和架构师帮我总结和设计应用架构。</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在之前，我已经搭建了一个autogen的环境，现在要结合我的实际需求，使用agent进行app的设计。<br>我预计做一个php的博客，替换掉我现在正在用的博客，代码编写由我自己使用ai完成，我会提出需求文档，现在需要一个产品经理和架构师帮我总结和设计应用架构。</p>
 <h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── main.py</span><br><span class="line">├── output</span><br><span class="line">└── template.py</span><br></pre></td></tr></table></figure>
 <h3 id="模板template-py"><a href="#模板template-py" class="headerlink" title="模板template.py"></a>模板template.py</h3><p><code>template.py</code>定义了产品经理agent和软件架构师的agent的系统提示词，并且预先定义了项目的功能需求。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">智能体配置</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 定义任务描述</span></span><br><span class="line">TASK_DESCRIPTION = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">请根据以下需求，设计一个PHP博客网站的系统架构和功能模块：</span></span><br><span class="line"><span class="string">1. 第一次安装时需要有初始化界面，需要让用户输入用户名和密码，增加第一个用户，用户密码需要加密存储。当用户已经初始化过之后，进入初始化页面直接跳转到首页。</span></span><br><span class="line"><span class="string">2. 首页需要支持自定义网站名称和网站描述，在网站名称和网站描述下方是博客列表，博客右侧列表为分类列表，最下方为版权描述。</span></span><br><span class="line"><span class="string">3. 首页博客列表按照10条每页进行分页，下面显示供多少页，支持手动输入页面跳转到对应的页面。</span></span><br><span class="line"><span class="string">4. 首页博客列表中的博客条目包括博客名称，博客摘要，博客分类，博客创建时间，点击博客条目可以进入博客详情页。</span></span><br><span class="line"><span class="string">5. 首页右侧的分类列表中的分类点击后博客列表展示对应分类的博客。</span></span><br><span class="line"><span class="string">6. 用户在登录页输入用户名和密码，点击确认按钮，校验用户名和密码通过后进入后台管理页面。</span></span><br><span class="line"><span class="string">7. 后台管理界面需要管理博客文章，博客分类，附件管理，个人设置四个功能</span></span><br><span class="line"><span class="string">8. 点击博客分类，可以对博客分类进行管理，按照10条每页进行分页，博客分类支持删除，重命名。</span></span><br><span class="line"><span class="string">8. 博客文章管理页面需要按10条每页来对博客条目进行分页，一行中需要展示博客文章名称，博客分类，最后修改时间，编辑按钮，删除按钮</span></span><br><span class="line"><span class="string">9. 博客文章列表最上方有新建博客按钮，点击新建博客按钮，进入博客编辑页面，博客编辑器使用md编辑器，编辑器下方是选择博客分类，设置博客时间，取消按钮和发布按钮。</span></span><br><span class="line"><span class="string">10. 博客管理界面每一条博客前面都有复选框，支持全选，选择后出现全部删除按钮。</span></span><br><span class="line"><span class="string">11. 点击附件管理，进入附件管理页面，按照10条每页来对附件条目进行分页，可以对附件进行删除和下载操作。</span></span><br><span class="line"><span class="string">12. 点击个人管理，可以设置用户名和密码。</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 定义产品经理代理的系统消息</span></span><br><span class="line">PRODUCT_MANAGER_SYSTEM_MESSAGE = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">你是一个专业的产品经理，负责PHP博客网站的产品规划和需求分析。</span></span><br><span class="line"><span class="string">你的职责包括：</span></span><br><span class="line"><span class="string">1. 分析用户需求，定义产品功能</span></span><br><span class="line"><span class="string">2. 创建用户故事和用例</span></span><br><span class="line"><span class="string">3. 确定产品优先级和路线图</span></span><br><span class="line"><span class="string">4. 与架构师协作确保技术可行性</span></span><br><span class="line"><span class="string">请专注于：</span></span><br><span class="line"><span class="string">- 用户认证和权限管理</span></span><br><span class="line"><span class="string">- 博客文章的CRUD操作</span></span><br><span class="line"><span class="string">- 评论系统</span></span><br><span class="line"><span class="string">- 分类和标签管理</span></span><br><span class="line"><span class="string">- 搜索功能</span></span><br><span class="line"><span class="string">- 响应式设计需求</span></span><br><span class="line"><span class="string">- SEO优化要求</span></span><br><span class="line"><span class="string">在讨论技术方案时，请与软件架构师充分沟通。</span></span><br><span class="line"><span class="string">请在与架构师的对话中，确认架构师的输出方案是否符合需求，如果符合需求，请输出&quot;APPROVE&quot;，否则请提出改进建议，不要在最后结束之前的对话中出现&quot;APPROVE&quot;这个词。</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="comment"># 定义软件架构师代理的系统消息</span></span><br><span class="line">SOFTWARE_ARCHITECT_SYSTEM_MESSAGE = <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">你是一个专业的软件架构师，专注于PHP网站开发。</span></span><br><span class="line"><span class="string">你的职责包括：</span></span><br><span class="line"><span class="string">1. 设计系统架构和技术栈选择</span></span><br><span class="line"><span class="string">2. 数据库设计</span></span><br><span class="line"><span class="string">3. API设计</span></span><br><span class="line"><span class="string">4. 安全考虑</span></span><br><span class="line"><span class="string">5. 性能优化方案</span></span><br><span class="line"><span class="string">技术栈建议：</span></span><br><span class="line"><span class="string">- 后端：PHP 8.x</span></span><br><span class="line"><span class="string">- 前端：HTML5, CSS3, JavaScript, 尽量使用原生JavaScript结合PHP, 避免使用框架</span></span><br><span class="line"><span class="string">- 数据库：Sqlite</span></span><br><span class="line"><span class="string">请提供具体的：</span></span><br><span class="line"><span class="string">- 数据库表结构设计</span></span><br><span class="line"><span class="string">- MVC架构规划</span></span><br><span class="line"><span class="string">- RESTful API设计</span></span><br><span class="line"><span class="string">- 安全措施（SQL注入防护、XSS防护等）</span></span><br><span class="line"><span class="string">与产品经理合作，确保技术方案满足业务需求。</span></span><br><span class="line"><span class="string">请将你的设计方案输出给产品经理进行确认，并等待产品经理的反馈。</span></span><br><span class="line"><span class="string">针对产品经理的反馈，你需要：</span></span><br><span class="line"><span class="string">1. 确认产品经理的反馈是否与你的设计方案一致</span></span><br><span class="line"><span class="string">2. 如果有不一致的地方，与产品经理沟通并协调解决方案</span></span><br><span class="line"><span class="string">3. 确保产品经理的需求得到满足</span></span><br><span class="line"><span class="string">根据产品经理的反馈进行修改之后，请完整的输出包含修改内容之后的全部设计方案，不要省略之前已经通过的设计文档的内容。</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
@@ -229,7 +232,6 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">A autogen using DeepSeek model.</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> autogen_agentchat.agents <span class="keyword">import</span> AssistantAgent</span><br><span class="line"><span class="keyword">from</span> autogen_agentchat.base <span class="keyword">import</span> TaskResult</span><br><span class="line"><span class="keyword">from</span> autogen_agentchat.conditions <span class="keyword">import</span> TextMentionTermination</span><br><span class="line"><span class="keyword">from</span> autogen_agentchat.teams <span class="keyword">import</span> RoundRobinGroupChat</span><br><span class="line"><span class="keyword">from</span> autogen_core <span class="keyword">import</span> EVENT_LOGGER_NAME</span><br><span class="line"><span class="keyword">from</span> autogen_ext.models.openai <span class="keyword">import</span> OpenAIChatCompletionClient</span><br><span class="line"><span class="keyword">from</span> dotenv <span class="keyword">import</span> load_dotenv</span><br><span class="line"><span class="keyword">from</span> template <span class="keyword">import</span> (</span><br><span class="line">    PRODUCT_MANAGER_SYSTEM_MESSAGE,</span><br><span class="line">    SOFTWARE_ARCHITECT_SYSTEM_MESSAGE,</span><br><span class="line">    TASK_DESCRIPTION,</span><br><span class="line">)</span><br><span class="line">load_dotenv()</span><br><span class="line">logging.basicConfig(level=logging.INFO)</span><br><span class="line">logger = logging.getLogger(EVENT_LOGGER_NAME)</span><br><span class="line">logger.setLevel(logging.INFO)</span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">main</span>(<span class="params">api_key: <span class="built_in">str</span>, task: <span class="built_in">str</span></span>) -&gt; TaskResult:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;主函数&quot;&quot;&quot;</span></span><br><span class="line">    openai_model_client = OpenAIChatCompletionClient(</span><br><span class="line">        model=<span class="string">&quot;deepseek-chat&quot;</span>,</span><br><span class="line">        base_url=<span class="string">&quot;https://api.deepseek.com&quot;</span>,</span><br><span class="line">        api_key=api_key,</span><br><span class="line">        model_info=&#123;</span><br><span class="line">            <span class="string">&quot;vision&quot;</span>: <span class="literal">False</span>,</span><br><span class="line">            <span class="string">&quot;function_calling&quot;</span>: <span class="literal">False</span>,</span><br><span class="line">            <span class="string">&quot;json_output&quot;</span>: <span class="literal">False</span>,</span><br><span class="line">            <span class="string">&quot;family&quot;</span>: <span class="string">&quot;unknown&quot;</span>,</span><br><span class="line">            <span class="string">&quot;structured_output&quot;</span>: <span class="literal">True</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    )</span><br><span class="line">    <span class="comment"># 创建产品经理助理</span></span><br><span class="line">    product_manager = AssistantAgent(</span><br><span class="line">        name=<span class="string">&quot;ProductManager&quot;</span>,</span><br><span class="line">        description=<span class="string">&quot;资深产品经理，擅长需求分析和产品规划&quot;</span>,</span><br><span class="line">        system_message=PRODUCT_MANAGER_SYSTEM_MESSAGE,</span><br><span class="line">        model_client=openai_model_client,</span><br><span class="line">    )</span><br><span class="line">    <span class="comment"># 创建软件架构师助理</span></span><br><span class="line">    software_architect = AssistantAgent(</span><br><span class="line">        name=<span class="string">&quot;SoftwareArchitect&quot;</span>,</span><br><span class="line">        description=<span class="string">&quot;专业的软件架构师，精通PHP网站开发&quot;</span>,</span><br><span class="line">        system_message=SOFTWARE_ARCHITECT_SYSTEM_MESSAGE,</span><br><span class="line">        model_client=openai_model_client,</span><br><span class="line">    )</span><br><span class="line">    text_termination = TextMentionTermination(<span class="string">&quot;APPROVE&quot;</span>)</span><br><span class="line">    team = RoundRobinGroupChat(</span><br><span class="line">        [product_manager, software_architect],</span><br><span class="line">        termination_condition=text_termination,</span><br><span class="line">        max_turns=<span class="number">10</span>,</span><br><span class="line">    )</span><br><span class="line">    result = <span class="keyword">await</span> team.run(task=task)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    open_api_key = os.getenv(<span class="string">&quot;OPENAI_API_KEY&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> open_api_key:</span><br><span class="line">        logger.error(<span class="string">&quot;OPENAI_API_KEY environment variable is not set.&quot;</span>)</span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line">    content = asyncio.run(main(open_api_key, task=TASK_DESCRIPTION))</span><br><span class="line">    logger.info(<span class="string">&quot;Messages handled: %d&quot;</span>, <span class="built_in">len</span>(content.messages))</span><br><span class="line">    <span class="keyword">for</span> index, message <span class="keyword">in</span> <span class="built_in">enumerate</span>(content.messages):</span><br><span class="line">        logger.info(<span class="string">&quot;Handled message %d&quot;</span>, index)</span><br><span class="line">        content = <span class="built_in">getattr</span>(message, <span class="string">&quot;content&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> content:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(<span class="string">&quot;output&quot;</span>):</span><br><span class="line">            os.makedirs(<span class="string">&quot;output&quot;</span>)</span><br><span class="line">        source = <span class="built_in">getattr</span>(message, <span class="string">&quot;source&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">f&quot;output/<span class="subst">&#123;index&#125;</span>_<span class="subst">&#123;source&#125;</span>.md&quot;</span>, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(content)</span><br></pre></td></tr></table></figure>
 <p>我使用<code>APPROVE</code>这个关键词来作为停止讨论的触发点，当然可以不使用这个方式，只传入<code>max_turns</code>参数来控制最大讨论轮数。</p>
 
-      
     </div>
 
     
@@ -237,198 +239,22 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2025/10/02/autogen-install-use/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="穆琪">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="穆琪的博客">
-      <meta itemprop="description" content="程序员代码踩坑分享">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 穆琪的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/10/02/autogen-install-use/" class="post-title-link" itemprop="url">autogen安装与使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-10-02 14:43:41" itemprop="dateCreated datePublished" datetime="2025-10-02T14:43:41+08:00">2025-10-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-10-16 14:51:35" itemprop="dateModified" datetime="2025-10-16T14:51:35+08:00">2025-10-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>之前搭建过crewAI，但是因为文档和自定义的地方比较少，所以尝试使用autogen</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n autogen python=3.12</span><br></pre></td></tr></table></figure>
-<h3 id="pip安装"><a href="#pip安装" class="headerlink" title="pip安装"></a>pip安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -U <span class="string">&quot;autogen-agentchat&quot;</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/10/02/autogen-install-use/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2025/10/01/crewai-install-use/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="穆琪">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="穆琪的博客">
-      <meta itemprop="description" content="程序员代码踩坑分享">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 穆琪的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/10/01/crewai-install-use/" class="post-title-link" itemprop="url">crewAI安装与使用</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-10-01 23:57:17" itemprop="dateCreated datePublished" datetime="2025-10-01T23:57:17+08:00">2025-10-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-10-16 14:40:03" itemprop="dateModified" datetime="2025-10-16T14:40:03+08:00">2025-10-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>crewAI通过配置角色让智能体来共同协作，这次使用crewAI来创建一个产品经理+软件架构师+PHP全栈开发工程师的团队</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="uv安装"><a href="#uv安装" class="headerlink" title="uv安装"></a>uv安装</h3><p>CrewAI 使用 UV 进行依赖管理和包处理，所以在使用crewAI之前先安装uv</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2025/10/01/crewai-install-use/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/10/02/autogen-install-use/" rel="prev" title="autogen安装与使用">
+                  <i class="fa fa-angle-left"></i> autogen安装与使用
+                </a>
             </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
+
 
 
 
