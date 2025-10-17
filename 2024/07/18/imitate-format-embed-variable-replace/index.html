@@ -20,26 +20,26 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"muqi.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null,"show_result":true},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"night"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="背景最近换回macbook，重装系统后安装homebrew，因为国内环境，使用清华源方式来安装">
+    <meta name="description" content="在工作中遇到一个需求，需要将一个变量数组按照顺序嵌入到字符串中。 这种需求第一想到的是强大的format函数，但format函数格式固定，需要使用{}，所以不满足需求，只好自己写一个替换的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="macos使用清华源安装homebrew">
-<meta property="og:url" content="https://muqi.github.io/2025/01/24/macos-using-tsinghua-mirror-install-homebrew/index.html">
+<meta property="og:title" content="仿format()将变量嵌入替换到字符串中">
+<meta property="og:url" content="https://muqi.github.io/2024/07/18/imitate-format-embed-variable-replace/index.html">
 <meta property="og:site_name" content="穆琪的博客">
-<meta property="og:description" content="背景最近换回macbook，重装系统后安装homebrew，因为国内环境，使用清华源方式来安装">
+<meta property="og:description" content="在工作中遇到一个需求，需要将一个变量数组按照顺序嵌入到字符串中。 这种需求第一想到的是强大的format函数，但format函数格式固定，需要使用{}，所以不满足需求，只好自己写一个替换的。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-01-24T07:37:24.000Z">
-<meta property="article:modified_time" content="2025-10-17T07:42:19.283Z">
+<meta property="article:published_time" content="2024-07-18T09:36:59.000Z">
+<meta property="article:modified_time" content="2025-10-17T17:01:38.347Z">
 <meta property="article:author" content="穆琪">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://muqi.github.io/2025/01/24/macos-using-tsinghua-mirror-install-homebrew/">
+<link rel="canonical" href="https://muqi.github.io/2024/07/18/imitate-format-embed-variable-replace/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://muqi.github.io/2025/01/24/macos-using-tsinghua-mirror-install-homebrew/","path":"2025/01/24/macos-using-tsinghua-mirror-install-homebrew/","title":"macos使用清华源安装homebrew"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://muqi.github.io/2024/07/18/imitate-format-embed-variable-replace/","path":"2024/07/18/imitate-format-embed-variable-replace/","title":"仿format()将变量嵌入替换到字符串中"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>macos使用清华源安装homebrew | 穆琪的博客</title>
+<title>仿format()将变量嵌入替换到字符串中 | 穆琪的博客</title>
   
 
 
@@ -115,7 +115,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -128,7 +128,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85CLT-For-Xcode"><span class="nav-number">2.1.</span> <span class="nav-text">安装CLT For Xcode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.2.</span> <span class="nav-text">设置环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Homebrew"><span class="nav-number">2.3.</span> <span class="nav-text">安装 Homebrew</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%E5%90%8E%E9%9C%80%E5%B0%86-brew-%E7%A8%8B%E5%BA%8F%E7%9A%84%E7%9B%B8%E5%85%B3%E8%B7%AF%E5%BE%84%E5%8A%A0%E5%85%A5%E5%88%B0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.4.</span> <span class="nav-text">安装成功后需将 brew 程序的相关路径加入到环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -174,7 +173,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2025/01/24/macos-using-tsinghua-mirror-install-homebrew/">
+    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2024/07/18/imitate-format-embed-variable-replace/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -187,12 +186,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="macos使用清华源安装homebrew | 穆琪的博客">
+      <meta itemprop="name" content="仿format()将变量嵌入替换到字符串中 | 穆琪的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          macos使用清华源安装homebrew
+          仿format()将变量嵌入替换到字符串中
         </h1>
 
         <div class="post-meta-container">
@@ -203,14 +202,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2025-01-24 15:37:24" itemprop="dateCreated datePublished" datetime="2025-01-24T15:37:24+08:00">2025-01-24</time>
+      <time title="创建时间：2024-07-18 17:36:59" itemprop="dateCreated datePublished" datetime="2024-07-18T17:36:59+08:00">2024-07-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-10-17 15:42:19" itemprop="dateModified" datetime="2025-10-17T15:42:19+08:00">2025-10-17</time>
+      <time title="修改时间：2025-10-18 01:01:38" itemprop="dateModified" datetime="2025-10-18T01:01:38+08:00">2025-10-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -218,7 +217,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+          <a href="/categories/%E4%BB%A3%E7%A0%81/" itemprop="url" rel="index"><span itemprop="name">代码</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BB%A3%E7%A0%81/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
         </span>
     </span>
 
@@ -231,23 +234,15 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近换回macbook，重装系统后安装homebrew，因为国内环境，使用清华源方式来安装</p>
+    <div class="post-body" itemprop="articleBody"><p>在工作中遇到一个需求，需要将一个变量数组按照顺序嵌入到字符串中。</p>
+<p>这种需求第一想到的是强大的format函数，但format函数格式固定，需要使用{}，所以不满足需求，只好自己写一个替换的。</p>
 <span id="more"></span>
 
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="安装CLT-For-Xcode"><a href="#安装CLT-For-Xcode" class="headerlink" title="安装CLT For Xcode"></a>安装CLT For Xcode</h3><p>macOS 用户需额外要求安装 Command Line Tools (CLT) for Xcode</p>
-<p>在命令行输入 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+<p>代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sting_embed</span>(<span class="params">word: <span class="built_in">str</span>, params: <span class="built_in">list</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;将变量嵌入到字符串中&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> params:</span><br><span class="line">        <span class="keyword">return</span> word</span><br><span class="line">    <span class="comment"># 判断字符串是否为变量嵌入</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;$&#123;1&#125;&quot;</span> <span class="keyword">not</span> <span class="keyword">in</span> word:</span><br><span class="line">        <span class="keyword">return</span> word</span><br><span class="line">    <span class="comment"># 约定使用$&#123;x&#125;形式进行替换，x从1开始</span></span><br><span class="line">    <span class="keyword">for</span> param_position <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(params) + <span class="number">1</span>):</span><br><span class="line">        word = word.replace(</span><br><span class="line">            <span class="string">f&quot;$&#123;&#123;<span class="subst">&#123;<span class="built_in">str</span>(param_position)&#125;</span>&#125;&#125;&quot;</span>, params[param_position - <span class="number">1</span>]</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> word</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">word = <span class="string">&quot;汤姆说：$&#123;1&#125;，吉米回答：$&#123;2&#125;&quot;</span></span><br><span class="line"><span class="built_in">vars</span> = [<span class="string">&quot;你好&quot;</span>, <span class="string">&quot;我很好&quot;</span>]</span><br><span class="line"><span class="built_in">print</span>(sting_embed(word, <span class="built_in">vars</span>))</span><br></pre></td></tr></table></figure>
 
-<h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HOMEBREW_BREW_GIT_REMOTE=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git&quot;</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_CORE_GIT_REMOTE=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git&quot;</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_INSTALL_FROM_API=1</span><br><span class="line"><span class="built_in">export</span> HOMEBREW_API_DOMAIN=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api&quot;</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_BOTTLE_DOMAIN=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>设置python的pypi镜像源为清华源</p>
-<h3 id="安装-Homebrew"><a href="#安装-Homebrew" class="headerlink" title="安装 Homebrew"></a>安装 Homebrew</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git brew-install</span><br><span class="line">/bin/bash brew-install/install.sh</span><br><span class="line"><span class="built_in">rm</span> -rf brew-install</span><br></pre></td></tr></table></figure>
-
-<h3 id="安装成功后需将-brew-程序的相关路径加入到环境变量"><a href="#安装成功后需将-brew-程序的相关路径加入到环境变量" class="headerlink" title="安装成功后需将 brew 程序的相关路径加入到环境变量"></a>安装成功后需将 brew 程序的相关路径加入到环境变量</h3><p>以下针对基于 Apple Silicon CPU 设备上的 macOS 系统（命令行运行 uname -m 应输出 arm64）上的 Homebrew：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">test</span> -r ~/.bash_profile &amp;&amp; <span class="built_in">echo</span> <span class="string">&#x27;eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;&#x27;</span> &gt;&gt; ~/.bash_profile</span><br><span class="line"><span class="built_in">test</span> -r ~/.zprofile &amp;&amp; <span class="built_in">echo</span> <span class="string">&#x27;eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;&#x27;</span> &gt;&gt; ~/.zprofile</span><br></pre></td></tr></table></figure>
-
-<p>对基于 Intel CPU 设备上的 macOS 系统（命令行运行 uname -m 应输出 x86_64）的用户可跳过本步</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://mirror.tuna.tsinghua.edu.cn/help/homebrew/">https://mirror.tuna.tsinghua.edu.cn/help/homebrew/</a></p>
+<p>其中按照列表的变量顺序替换字符串中的占位符，如果需要改成按照变量名替换，传入的是字典的代码如下：  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sting_embed</span>(<span class="params">word: <span class="built_in">str</span>, params: <span class="built_in">dict</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;将变量嵌入到字符串中&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> params:</span><br><span class="line">        <span class="keyword">return</span> word</span><br><span class="line">    <span class="comment"># 约定使用$&#123;x&#125;形式进行替换，x为变量名</span></span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> params.items():</span><br><span class="line">        word = word.replace(</span><br><span class="line">            <span class="string">f&quot;$&#123;&#123;<span class="subst">&#123;<span class="built_in">str</span>(k)&#125;</span>&#125;&#125;&quot;</span>, v</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> word</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">word = <span class="string">&quot;汤姆说：$&#123;one&#125;，吉米回答：$&#123;two&#125;&quot;</span></span><br><span class="line"><span class="built_in">vars</span> = &#123;<span class="string">&quot;one&quot;</span>:<span class="string">&quot;你好&quot;</span>, <span class="string">&quot;two&quot;</span>:<span class="string">&quot;我很好&quot;</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(sting_embed(word, <span class="built_in">vars</span>))</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -261,13 +256,10 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/10/10/windows-setx-environment-variable-using-registry/" rel="prev" title="Windows下setx重复设置环境变量解决-使用注册表设置环境变量">
-                  <i class="fa fa-angle-left"></i> Windows下setx重复设置环境变量解决-使用注册表设置环境变量
-                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/01/29/get-mouse-coordinates-tool/" rel="next" title="获取鼠标坐标小工具">
-                  获取鼠标坐标小工具 <i class="fa fa-angle-right"></i>
+                <a href="/2024/07/25/xpath-select-element-name-and-contain-string/" rel="next" title="Xpath选择元素名称相等和包含特定字符串的元素">
+                  Xpath选择元素名称相等和包含特定字符串的元素 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
