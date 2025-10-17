@@ -20,26 +20,26 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"muqi.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null,"show_result":true},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"night"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="背景我有一个应用，在安装时执行一个install.bat脚本，其中使用setx将应用目录设置到Path环境变量中，但是在真正执行的时候出现了以下报错： 12警告：正在保存的数据被截断为1024个字符WARNING: The data being saved is truncated to 1024 characters.">
+    <meta name="description" content="在XPath中，可以使用不同的函数和运算符来选择元素名称相等和包含特定字符串的元素。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows下setx重复设置环境变量解决-使用注册表设置环境变量">
-<meta property="og:url" content="https://muqi.github.io/2024/10/10/windows-setx-environment-variable-using-registry/index.html">
+<meta property="og:title" content="Xpath选择元素名称相等和包含特定字符串的元素">
+<meta property="og:url" content="https://muqi.github.io/2024/07/25/xpath-select-element-name-and-contain-string/index.html">
 <meta property="og:site_name" content="穆琪的博客">
-<meta property="og:description" content="背景我有一个应用，在安装时执行一个install.bat脚本，其中使用setx将应用目录设置到Path环境变量中，但是在真正执行的时候出现了以下报错： 12警告：正在保存的数据被截断为1024个字符WARNING: The data being saved is truncated to 1024 characters.">
+<meta property="og:description" content="在XPath中，可以使用不同的函数和运算符来选择元素名称相等和包含特定字符串的元素。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-10-10T08:53:08.000Z">
-<meta property="article:modified_time" content="2025-10-17T08:55:49.023Z">
+<meta property="article:published_time" content="2024-07-25T09:06:00.000Z">
+<meta property="article:modified_time" content="2025-10-17T09:08:51.822Z">
 <meta property="article:author" content="穆琪">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://muqi.github.io/2024/10/10/windows-setx-environment-variable-using-registry/">
+<link rel="canonical" href="https://muqi.github.io/2024/07/25/xpath-select-element-name-and-contain-string/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://muqi.github.io/2024/10/10/windows-setx-environment-variable-using-registry/","path":"2024/10/10/windows-setx-environment-variable-using-registry/","title":"Windows下setx重复设置环境变量解决-使用注册表设置环境变量"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://muqi.github.io/2024/07/25/xpath-select-element-name-and-contain-string/","path":"2024/07/25/xpath-select-element-name-and-contain-string/","title":"Xpath选择元素名称相等和包含特定字符串的元素"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Windows下setx重复设置环境变量解决-使用注册表设置环境变量 | 穆琪的博客</title>
+<title>Xpath选择元素名称相等和包含特定字符串的元素 | 穆琪的博客</title>
   
 
 
@@ -128,7 +128,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E9%80%89%E6%8B%A9%E5%85%83%E7%B4%A0%E5%90%8D%E7%A7%B0%E7%9B%B8%E7%AD%89%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">1.</span> <span class="nav-text">1. 选择元素名称相等的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%80%89%E6%8B%A9%E5%85%83%E7%B4%A0%E5%90%8D%E7%A7%B0%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">2.</span> <span class="nav-text">2. 选择元素名称包含特定字符串的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%80%89%E6%8B%A9%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7%E5%80%BC%E7%9B%B8%E7%AD%89%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">3.</span> <span class="nav-text">3. 选择元素属性值相等的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E9%80%89%E6%8B%A9%E5%85%83%E7%B4%A0%E5%B1%9E%E6%80%A7%E5%80%BC%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">4. 选择元素属性值包含特定字符串的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E9%80%89%E6%8B%A9%E5%85%83%E7%B4%A0%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E5%8C%85%E5%90%AB%E7%89%B9%E5%AE%9A%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">5.</span> <span class="nav-text">5. 选择元素文本内容包含特定字符串的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E9%80%89%E6%8B%A9%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E7%AD%89%E4%BA%8E%E7%89%B9%E5%AE%9A%E5%80%BC%E7%9A%84%E5%85%83%E7%B4%A0"><span class="nav-number">6.</span> <span class="nav-text">6. 选择文本内容等于特定值的元素</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -174,7 +174,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2024/10/10/windows-setx-environment-variable-using-registry/">
+    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2024/07/25/xpath-select-element-name-and-contain-string/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -187,12 +187,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Windows下setx重复设置环境变量解决-使用注册表设置环境变量 | 穆琪的博客">
+      <meta itemprop="name" content="Xpath选择元素名称相等和包含特定字符串的元素 | 穆琪的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Windows下setx重复设置环境变量解决-使用注册表设置环境变量
+          Xpath选择元素名称相等和包含特定字符串的元素
         </h1>
 
         <div class="post-meta-container">
@@ -203,14 +203,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-10-10 16:53:08" itemprop="dateCreated datePublished" datetime="2024-10-10T16:53:08+08:00">2024-10-10</time>
+      <time title="创建时间：2024-07-25 17:06:00" itemprop="dateCreated datePublished" datetime="2024-07-25T17:06:00+08:00">2024-07-25</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-10-17 16:55:49" itemprop="dateModified" datetime="2025-10-17T16:55:49+08:00">2025-10-17</time>
+      <time title="修改时间：2025-10-17 17:08:51" itemprop="dateModified" datetime="2025-10-17T17:08:51+08:00">2025-10-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -218,7 +218,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
         </span>
     </span>
 
@@ -231,17 +231,26 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>我有一个应用，在安装时执行一个install.bat脚本，其中使用setx将应用目录设置到Path环境变量中，但是在真正执行的时候出现了以下报错：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">警告：正在保存的数据被截断为1024个字符</span><br><span class="line">WARNING: The data being saved is truncated to 1024 characters.</span><br></pre></td></tr></table></figure>
-
+    <div class="post-body" itemprop="articleBody"><p>在XPath中，可以使用不同的函数和运算符来选择元素名称相等和包含特定字符串的元素。</p>
 <span id="more"></span>
 
-<p>但是我的环境变量应该没有超过这些字符才对，遂查看系统环境变量，发现setx将我的环境变量又重新设置了一遍</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>使用reg即注册表设置环境变量</p>
-<p>代码如下，包括判断是否环境变量中存在此目录，我使用的目录是用\\分割</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">chcp 65001 &gt; nul</span><br><span class="line"><span class="built_in">echo</span>  把cmd设置成UTF-8</span><br><span class="line"><span class="built_in">set</span> <span class="string">&quot;CURRENT_DIR=%cd:\=\\%&quot;</span></span><br><span class="line"><span class="built_in">echo</span> 启动目录:%CURRENT_DIR%</span><br><span class="line">rem 获取上一级目录</span><br><span class="line"><span class="keyword">for</span> %%i <span class="keyword">in</span> (<span class="string">&quot;%CURRENT_DIR%&quot;</span>) <span class="keyword">do</span> <span class="built_in">set</span> <span class="string">&quot;ROOT_DIR=%%~dpi&quot;</span></span><br><span class="line">rem 删除最后一个反斜杠</span><br><span class="line"><span class="built_in">set</span> <span class="string">&quot;ROOT_DIR=%ROOT_DIR:~0,-1%&quot;</span></span><br><span class="line"><span class="built_in">echo</span> ROOT_DIR: %ROOT_DIR%</span><br><span class="line">rem 设置要添加的路径</span><br><span class="line"><span class="built_in">set</span> new_path=%ROOT_DIR:\=\\%</span><br><span class="line">rem 用户变量所在位置：`HKEY_CURRENT_USER\Environment`</span><br><span class="line"><span class="built_in">set</span> USERregpath=HKEY_CURRENT_USER\Environment</span><br><span class="line">rem 查询原有 PATH 的值</span><br><span class="line"><span class="keyword">for</span> /F <span class="string">&quot;tokens=3*&quot;</span> %%i <span class="keyword">in</span> (<span class="string">&#x27;reg query &quot;%USERregpath%&quot; /v &quot;path&quot; 2^&gt;nul&#x27;</span>) <span class="keyword">do</span> <span class="built_in">echo</span> %%i %%j</span><br><span class="line"><span class="keyword">for</span> /F <span class="string">&quot;tokens=3*&quot;</span> %%i <span class="keyword">in</span> (<span class="string">&#x27;reg query &quot;%USERregpath%&quot; /v &quot;path&quot; 2^&gt;nul&#x27;</span>) <span class="keyword">do</span> ( <span class="built_in">set</span> USERpath=%%i %%j)</span><br><span class="line"><span class="built_in">echo</span> USERpath=%USERpath%</span><br><span class="line">rem 将new_path中的双反斜杠替换为单反斜杠</span><br><span class="line"><span class="built_in">set</span> new_path_single=%new_path:\\=\%</span><br><span class="line">rem 将USERpath中的双反斜杠替换为单反斜杠</span><br><span class="line"><span class="built_in">set</span> USERpath_single=%USERpath:\\=\%</span><br><span class="line">rem 检查PATH中是否包含new_path，不存在插入</span><br><span class="line"><span class="built_in">echo</span> %USERpath_single% | findstr /I /C:<span class="string">&quot;%new_path_single%&quot;</span> &gt; nul</span><br><span class="line"><span class="keyword">if</span> %errorlevel% equ 0 (</span><br><span class="line">    <span class="built_in">echo</span> %new_path% exist.</span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    reg add <span class="string">&quot;%USERregpath%&quot;</span> /v <span class="string">&quot;Path&quot;</span> /t REG_EXPAND_SZ /d <span class="string">&quot;%new_path%;%USERpath%&quot;</span> /f</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h3 id="1-选择元素名称相等的元素"><a href="#1-选择元素名称相等的元素" class="headerlink" title="1. 选择元素名称相等的元素"></a>1. 选择元素名称相等的元素</h3><p>如果你想选择元素名称等于特定值的元素，可以使用标准的XPath语法。例如，要选择名称为 <code>div</code> 的所有元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//div</span></span><br></pre></td></tr></table></figure>
 
-<p>执行完脚本之后重启电脑或者注销重新登录即可</p>
+<h3 id="2-选择元素名称包含特定字符串的元素"><a href="#2-选择元素名称包含特定字符串的元素" class="headerlink" title="2. 选择元素名称包含特定字符串的元素"></a>2. 选择元素名称包含特定字符串的元素</h3><p>要选择元素名称包含特定字符串的元素，可以使用 <code>contains()</code> 函数结合 <code>name()</code> 函数。<code>name()</code> 函数返回节点的名称，<code>contains()</code> 函数检查一个字符串是否包含另一个字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//*[contains(name(), &#x27;div&#x27;)]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-选择元素属性值相等的元素"><a href="#3-选择元素属性值相等的元素" class="headerlink" title="3. 选择元素属性值相等的元素"></a>3. 选择元素属性值相等的元素</h3><p>如果你想选择某个属性值等于特定值的元素，可以使用 <code>@</code> 符号。例如，选择 <code>class</code> 属性等于 <code>example</code> 的元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//*[@class=&#x27;example&#x27;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-选择元素属性值包含特定字符串的元素"><a href="#4-选择元素属性值包含特定字符串的元素" class="headerlink" title="4. 选择元素属性值包含特定字符串的元素"></a>4. 选择元素属性值包含特定字符串的元素</h3><p>要选择某个属性值包含特定字符串的元素，可以使用 <code>contains()</code> 函数。例如，选择 <code>class</code> 属性包含 <code>example</code> 的元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//*[contains(@class, &#x27;example&#x27;)]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-选择元素文本内容包含特定字符串的元素"><a href="#5-选择元素文本内容包含特定字符串的元素" class="headerlink" title="5. 选择元素文本内容包含特定字符串的元素"></a>5. 选择元素文本内容包含特定字符串的元素</h3><p>如果你想选择文本内容包含特定字符串的元素，可以使用 <code>contains()</code> 函数结合 <code>text()</code> 函数。例如，选择文本内容包含 <code>example</code> 的元素：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//*[contains(text(), &#x27;example&#x27;)]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-选择文本内容等于特定值的元素"><a href="#6-选择文本内容等于特定值的元素" class="headerlink" title="6. 选择文本内容等于特定值的元素"></a>6. 选择文本内容等于特定值的元素</h3><p>如果你想选择文本内容完全等于特定字符串的元素，可以使用 <code>text() = &#39;value&#39;</code> 这种方式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//*[text() = &#x27;example text&#x27;]</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -255,13 +264,10 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/07/25/xpath-select-element-name-and-contain-string/" rel="prev" title="Xpath选择元素名称相等和包含特定字符串的元素">
-                  <i class="fa fa-angle-left"></i> Xpath选择元素名称相等和包含特定字符串的元素
-                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2025/01/24/macos-using-tsinghua-mirror-install-homebrew/" rel="next" title="macos使用清华源安装homebrew">
-                  macos使用清华源安装homebrew <i class="fa fa-angle-right"></i>
+                <a href="/2024/10/10/windows-setx-environment-variable-using-registry/" rel="next" title="Windows下setx重复设置环境变量解决-使用注册表设置环境变量">
+                  Windows下setx重复设置环境变量解决-使用注册表设置环境变量 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
