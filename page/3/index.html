@@ -138,7 +138,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -511,6 +511,100 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/06/07/update-git-remembered-password-after-changing-git-password/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2023/06/06/docker-find-container-on-overlay2-directory-name/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="穆琪">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="穆琪的博客">
+      <meta itemprop="description" content="程序员代码踩坑分享">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 穆琪的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/06/06/docker-find-container-on-overlay2-directory-name/" class="post-title-link" itemprop="url">docker根据overlay2的目录名找到对应的容器</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-06 22:24:11" itemprop="dateCreated datePublished" datetime="2023-06-06T22:24:11+08:00">2023-06-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-10-22 22:25:44" itemprop="dateModified" datetime="2025-10-22T22:25:44+08:00">2025-10-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在工作中，有一段旧代码在容器中使用了临时文件库tmpfile，并设置为不自动删除，所以临时文件一直堆积在&#x2F;tmp目录下。</p>
+<p>而容器中的tmp目录是不会清理的，终于有一天，整个var目录满了。</p>
+<p>查到overlay2目录下的某个目录占用比较大，就需要根据目录名找到对应的容器</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/06/06/docker-find-container-on-overlay2-directory-name/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
