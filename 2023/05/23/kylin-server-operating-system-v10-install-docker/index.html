@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"muqi.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null,"show_result":true},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"night"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="背景服务采用docker启动，适配国产化麒麟V10系统，需要安装docker 软件包使用二进制的安装方式进行安装，docker版本为19.03.15 docker下载地址：https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;static&#x2F;stable&#x2F;x86_64&#x2F; 选择对应版本的tgz包即可。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="麒麟高级服务器操作系统V10安装docker">
+<meta property="og:url" content="https://muqi.github.io/2023/05/23/kylin-server-operating-system-v10-install-docker/index.html">
+<meta property="og:site_name" content="穆琪的博客">
+<meta property="og:description" content="背景服务采用docker启动，适配国产化麒麟V10系统，需要安装docker 软件包使用二进制的安装方式进行安装，docker版本为19.03.15 docker下载地址：https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;static&#x2F;stable&#x2F;x86_64&#x2F; 选择对应版本的tgz包即可。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-23T14:29:19.000Z">
+<meta property="article:modified_time" content="2025-10-22T14:30:52.947Z">
+<meta property="article:author" content="穆琪">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://muqi.github.io/2023/05/23/kylin-server-operating-system-v10-install-docker/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://muqi.github.io/2023/05/23/kylin-server-operating-system-v10-install-docker/","path":"2023/05/23/kylin-server-operating-system-v10-install-docker/","title":"麒麟高级服务器操作系统V10安装docker"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>麒麟高级服务器操作系统V10安装docker | 穆琪的博客</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">穆琪的博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="nav-number">2.</span> <span class="nav-text">软件包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">安装步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8B%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">3.1.</span> <span class="nav-text">解压安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">创建配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90"><span class="nav-number">3.3.</span> <span class="nav-text">修改权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1"><span class="nav-number">3.4.</span> <span class="nav-text">启动服务</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">穆琪</p>
+  <div class="site-description" itemprop="description">程序员代码踩坑分享</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2023/05/23/kylin-server-operating-system-v10-install-docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="穆琪">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="穆琪的博客">
+      <meta itemprop="description" content="程序员代码踩坑分享">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="麒麟高级服务器操作系统V10安装docker | 穆琪的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          麒麟高级服务器操作系统V10安装docker
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-23 22:29:19" itemprop="dateCreated datePublished" datetime="2023-05-23T22:29:19+08:00">2023-05-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-10-22 22:30:52" itemprop="dateModified" datetime="2025-10-22T22:30:52+08:00">2025-10-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>服务采用docker启动，适配国产化麒麟V10系统，需要安装docker</p>
+<h2 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h2><p>使用二进制的安装方式进行安装，docker版本为19.03.15</p>
+<p>docker下载地址：<a target="_blank" rel="noopener" href="https://download.docker.com/linux/static/stable/x86_64/">https://download.docker.com/linux/static/stable/x86_64&#x2F;</a></p>
+<p>选择对应版本的tgz包即可。</p>
+<span id="more"></span>
+
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><h3 id="解压安装包"><a href="#解压安装包" class="headerlink" title="解压安装包"></a>解压安装包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf docker-19.03.15.tgz’</span><br><span class="line">\<span class="built_in">cp</span> docker/* /usr/bin/</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/systemd/system/containerd.service</span><br></pre></td></tr></table></figure>
+
+<p>内容为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=containerd container runtime</span><br><span class="line">Documentation=https://containerd.io</span><br><span class="line">After=network.target local-fs.target</span><br><span class="line">[Service]</span><br><span class="line">ExecStartPre=-/sbin/modprobe overlay</span><br><span class="line">ExecStart=/usr/bin/containerd</span><br><span class="line">Type=notify</span><br><span class="line">Delegate=<span class="built_in">yes</span></span><br><span class="line">KillMode=process</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=5</span><br><span class="line">LimitNPROC=infinity</span><br><span class="line">LimitCORE=infinity</span><br><span class="line">LimitNOFILE=1048576</span><br><span class="line">TasksMax=infinity</span><br><span class="line">OOMScoreAdjust=-999</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/systemd/system/docker.service</span><br></pre></td></tr></table></figure>
+
+<p>内容为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Docker Application Container Engine</span><br><span class="line">Documentation=https://docs.docker.com</span><br><span class="line">After=network-online.target docker.socket firewalld.service containerd.service time-set.target</span><br><span class="line">Wants=network-online.target containerd.service</span><br><span class="line">Requires=docker.socket</span><br><span class="line">[Service]</span><br><span class="line">Type=notify</span><br><span class="line"><span class="comment"># the default is not to use systemd for cgroups because the delegate issues still</span></span><br><span class="line"><span class="comment"># exists and systemd currently does not support the cgroup feature set required</span></span><br><span class="line"><span class="comment"># for containers run by docker</span></span><br><span class="line">ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock</span><br><span class="line">ExecReload=/bin/kill -s HUP <span class="variable">$MAINPID</span></span><br><span class="line">TimeoutStartSec=0</span><br><span class="line">RestartSec=2</span><br><span class="line">Restart=always</span><br><span class="line"><span class="comment"># Note that StartLimit* options were moved from &quot;Service&quot; to &quot;Unit&quot; in systemd 229.</span></span><br><span class="line"><span class="comment"># Both the old, and new location are accepted by systemd 229 and up, so using the old location</span></span><br><span class="line"><span class="comment"># to make them work for either version of systemd.</span></span><br><span class="line">StartLimitBurst=3</span><br><span class="line"><span class="comment"># Note that StartLimitInterval was renamed to StartLimitIntervalSec in systemd 230.</span></span><br><span class="line"><span class="comment"># Both the old, and new name are accepted by systemd 230 and up, so using the old name to make</span></span><br><span class="line"><span class="comment"># this option work for either version of systemd.</span></span><br><span class="line">StartLimitInterval=60s</span><br><span class="line"><span class="comment"># Having non-zero Limit*s causes performance problems due to accounting overhead</span></span><br><span class="line"><span class="comment"># in the kernel. We recommend using cgroups to do container-local accounting.</span></span><br><span class="line">LimitNOFILE=infinity</span><br><span class="line">LimitNPROC=infinity</span><br><span class="line">LimitCORE=infinity</span><br><span class="line"><span class="comment"># Comment TasksMax if your systemd version does not support it.</span></span><br><span class="line"><span class="comment"># Only systemd 226 and above support this option.</span></span><br><span class="line">TasksMax=infinity</span><br><span class="line"><span class="comment"># set delegate yes so that systemd does not reset the cgroups of docker containers</span></span><br><span class="line">Delegate=<span class="built_in">yes</span></span><br><span class="line"><span class="comment"># kill only the docker process, not all processes in the cgroup</span></span><br><span class="line">KillMode=process</span><br><span class="line">OOMScoreAdjust=-500</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/systemd/system/docker.socket</span><br></pre></td></tr></table></figure>
+
+<p>内容为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Docker Socket <span class="keyword">for</span> the API</span><br><span class="line">[Socket]</span><br><span class="line"><span class="comment"># If /var/run is not implemented as a symlink to /run, you may need to</span></span><br><span class="line"><span class="comment"># specify ListenStream=/var/run/docker.sock instead.</span></span><br><span class="line">ListenStream=/run/docker.sock</span><br><span class="line">SocketMode=0660</span><br><span class="line">SocketUser=root</span><br><span class="line">SocketGroup=docker</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=sockets.target</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755 /etc/systemd/system/docker.service</span><br><span class="line"><span class="built_in">chmod</span> 755 /etc/systemd/system/docker.socket</span><br><span class="line"><span class="built_in">chmod</span> 755 /etc/systemd/system/containerd.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> --now containerd.service</span><br><span class="line">groupadd docker</span><br><span class="line">systemctl <span class="built_in">enable</span> --now docker.socket  &amp;&amp; systemctl <span class="built_in">enable</span> --now docker.service</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/06/06/docker-find-container-on-overlay2-directory-name/" rel="next" title="docker根据overlay2的目录名找到对应的容器">
+                  docker根据overlay2的目录名找到对应的容器 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">穆琪</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
