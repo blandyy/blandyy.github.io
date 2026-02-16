@@ -138,7 +138,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -225,6 +225,163 @@
     <div class="post-body" itemprop="articleBody">
           <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 列举消费者</span></span><br><span class="line">./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 查看偏移量</span></span><br><span class="line">./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group consumer --describe</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 移动至最新</span></span><br><span class="line">./kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group multi-alarms-pro --topic Alarms --reset-offsets --to-latest -execute</span><br></pre></td></tr></table></figure>
 
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2023/05/09/es-single-value-and-multi-value-query-template/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="穆琪">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="穆琪的博客">
+      <meta itemprop="description" content="程序员代码踩坑分享">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 穆琪的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/05/09/es-single-value-and-multi-value-query-template/" class="post-title-link" itemprop="url">es单值与多值查询模板</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-09 19:00:14" itemprop="dateCreated datePublished" datetime="2023-05-09T19:00:14+08:00">2023-05-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-02-16 19:02:24" itemprop="dateModified" datetime="2026-02-16T19:02:24+08:00">2026-02-16</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在开发过程中，经常遇到要去es中查询数据排查问题的情况，这时候就需要有一个简单的模板带入参数进行查询。</p>
+<h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单值</span></span><br><span class="line">curl -XGET  localhost:9200/xxx/_search?pretty -d <span class="string">&#x27;&#123;&quot;query&quot;:&#123;&quot;term&quot;:&#123;&quot;&quot;:&quot;&quot;&#125;&#125;,&quot;from&quot;:0,&quot;size&quot;:1&#125;&#x27;</span></span><br><span class="line"><span class="comment"># 多值</span></span><br><span class="line">curl -XGET  localhost:9200/xxx/_search?pretty -d <span class="string">&#x27;&#123;&quot;query&quot;:&#123;&quot;bool&quot;:&#123;&quot;must&quot;:[&#123;&quot;term&quot;:&#123;&quot;attacker&quot;:&quot;x.x.x.x&quot;&#125;&#125;,&#123;&quot;term&quot;:&#123;&quot;victim&quot;:&quot;x.x.x.x&quot;&#125;&#125;]&#125;&#125;,&quot;from&quot;:0,&quot;size&quot;:1&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2023/05/09/query-the-longest-running-statements-in-recent-sql-logs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="穆琪">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="穆琪的博客">
+      <meta itemprop="description" content="程序员代码踩坑分享">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 穆琪的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/05/09/query-the-longest-running-statements-in-recent-sql-logs/" class="post-title-link" itemprop="url">查询最近一段sql日志中执行时间最长的语句</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-09 09:36:51" itemprop="dateCreated datePublished" datetime="2023-05-09T09:36:51+08:00">2023-05-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-02-16 18:59:07" itemprop="dateModified" datetime="2026-02-16T18:59:07+08:00">2026-02-16</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>查询PostgreSQL日志中执行时间最长的SQL语句，可使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> -n 10000 postgresql-2022-09-15_090253.log | grep duration | <span class="built_in">sort</span> -k 7 -r -n | <span class="built_in">head</span> -n 10</span><br></pre></td></tr></table></figure>
+
+<p>也可直接通过<code>grep</code>过滤后结合<code>sort -k 7 -r -n</code>进行排序查询。</p>
+<p><strong>注意</strong>：使用该方法前，需要提前打开PG日志的执行时间打印功能。</p>
 
       
     </div>
