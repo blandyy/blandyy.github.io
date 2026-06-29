@@ -20,26 +20,26 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"muqi.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null,"show_result":true},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"night"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="背景在工作中，有一段旧代码在容器中使用了临时文件库tmpfile，并设置为不自动删除，所以临时文件一直堆积在&#x2F;tmp目录下。 而容器中的tmp目录是不会清理的，终于有一天，整个var目录满了。 查到overlay2目录下的某个目录占用比较大，就需要根据目录名找到对应的容器">
+    <meta name="description" content="安装命令1curl -fsSL https:&#x2F;&#x2F;pi.dev&#x2F;install.sh | sh  执行pi进入TUI 错误信息1234fd not found. Downloading...ripgrep not found. Downloading...Failed to download ripgrep: fetch failedFailed to download fd: fetch fail">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker根据overlay2的目录名找到对应的容器">
-<meta property="og:url" content="https://muqi.github.io/2023/06/06/docker-find-container-on-overlay2-directory-name/index.html">
+<meta property="og:title" content="linux下安装pi agent code实录">
+<meta property="og:url" content="https://muqi.github.io/2026/06/29/linux-install-pi-agent-code/index.html">
 <meta property="og:site_name" content="穆琪的博客">
-<meta property="og:description" content="背景在工作中，有一段旧代码在容器中使用了临时文件库tmpfile，并设置为不自动删除，所以临时文件一直堆积在&#x2F;tmp目录下。 而容器中的tmp目录是不会清理的，终于有一天，整个var目录满了。 查到overlay2目录下的某个目录占用比较大，就需要根据目录名找到对应的容器">
+<meta property="og:description" content="安装命令1curl -fsSL https:&#x2F;&#x2F;pi.dev&#x2F;install.sh | sh  执行pi进入TUI 错误信息1234fd not found. Downloading...ripgrep not found. Downloading...Failed to download ripgrep: fetch failedFailed to download fd: fetch fail">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-06-06T14:24:11.000Z">
-<meta property="article:modified_time" content="2025-10-22T14:27:32.136Z">
+<meta property="article:published_time" content="2026-06-29T08:40:57.000Z">
+<meta property="article:modified_time" content="2026-06-29T08:45:17.302Z">
 <meta property="article:author" content="穆琪">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://muqi.github.io/2023/06/06/docker-find-container-on-overlay2-directory-name/">
+<link rel="canonical" href="https://muqi.github.io/2026/06/29/linux-install-pi-agent-code/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://muqi.github.io/2023/06/06/docker-find-container-on-overlay2-directory-name/","path":"2023/06/06/docker-find-container-on-overlay2-directory-name/","title":"docker根据overlay2的目录名找到对应的容器"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://muqi.github.io/2026/06/29/linux-install-pi-agent-code/","path":"2026/06/29/linux-install-pi-agent-code/","title":"linux下安装pi agent code实录"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>docker根据overlay2的目录名找到对应的容器 | 穆琪的博客</title>
+<title>linux下安装pi agent code实录 | 穆琪的博客</title>
   
 
 
@@ -128,7 +128,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.</span> <span class="nav-text">操作语句</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">安装命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF"><span class="nav-number">2.</span> <span class="nav-text">错误信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">解决步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85fd"><span class="nav-number">3.1.</span> <span class="nav-text">安装fd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85ripgrep"><span class="nav-number">3.2.</span> <span class="nav-text">安装ripgrep</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -178,7 +178,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2023/06/06/docker-find-container-on-overlay2-directory-name/">
+    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2026/06/29/linux-install-pi-agent-code/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -191,12 +191,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="docker根据overlay2的目录名找到对应的容器 | 穆琪的博客">
+      <meta itemprop="name" content="linux下安装pi agent code实录 | 穆琪的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          docker根据overlay2的目录名找到对应的容器
+          linux下安装pi agent code实录
         </h1>
 
         <div class="post-meta-container">
@@ -206,15 +206,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-06-06 22:24:11" itemprop="dateCreated datePublished" datetime="2023-06-06T22:24:11+08:00">2023-06-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-10-22 22:27:32" itemprop="dateModified" datetime="2025-10-22T22:27:32+08:00">2025-10-22</time>
+      <time title="创建时间：2026-06-29 16:40:57 / 修改时间：16:45:17" itemprop="dateCreated datePublished" datetime="2026-06-29T16:40:57+08:00">2026-06-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -222,7 +216,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">操作系统</span></a>
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
         </span>
     </span>
 
@@ -235,12 +229,17 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在工作中，有一段旧代码在容器中使用了临时文件库tmpfile，并设置为不自动删除，所以临时文件一直堆积在&#x2F;tmp目录下。</p>
-<p>而容器中的tmp目录是不会清理的，终于有一天，整个var目录满了。</p>
-<p>查到overlay2目录下的某个目录占用比较大，就需要根据目录名找到对应的容器</p>
-<span id="more"></span>
+    <div class="post-body" itemprop="articleBody"><h2 id="安装命令"><a href="#安装命令" class="headerlink" title="安装命令"></a>安装命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://pi.dev/install.sh | sh</span><br></pre></td></tr></table></figure>
 
-<h2 id="操作语句"><a href="#操作语句" class="headerlink" title="操作语句"></a>操作语句</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -q | xargs docker inspect --format <span class="string">&#x27;&#123;&#123;.State.Pid&#125;&#125;, &#123;&#123;.Id&#125;&#125;, &#123;&#123;.Name&#125;&#125;, &#123;&#123;.GraphDriver.Data.WorkDir&#125;&#125;&#x27;</span> | grep <span class="string">&#x27;目录名&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>执行<code>pi</code>进入TUI</p>
+<h2 id="错误信息"><a href="#错误信息" class="headerlink" title="错误信息"></a>错误信息</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fd not found. Downloading...</span><br><span class="line">ripgrep not found. Downloading...</span><br><span class="line">Failed to download ripgrep: fetch failed</span><br><span class="line">Failed to download fd: fetch failed</span><br></pre></td></tr></table></figure>
+
+<h2 id="解决步骤"><a href="#解决步骤" class="headerlink" title="解决步骤"></a>解决步骤</h2><p>之前我在windows上执行报一样的错误，现在linux上也没有对应的命令，直接在仓库中找到对应系统的安装命令即可<br>fd：速度极快的 find 替代品，用来按文件名搜索文件。<br>ripgrep (rg)：速度极快的 grep 替代品，用来按内容搜索代码。</p>
+<h3 id="安装fd"><a href="#安装fd" class="headerlink" title="安装fd"></a>安装fd</h3><p>仓库：<a target="_blank" rel="noopener" href="https://github.com/sharkdp/fd">https://github.com/sharkdp/fd</a><br>debian安装命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install fd-find</span><br><span class="line"><span class="comment"># 安装完成之后要重命名fd-find为fd</span></span><br><span class="line"><span class="built_in">ln</span> -s $(<span class="built_in">which</span> fdfind) ~/.local/bin/fd</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装ripgrep"><a href="#安装ripgrep" class="headerlink" title="安装ripgrep"></a>安装ripgrep</h3><p>仓库：<a target="_blank" rel="noopener" href="https://github.com/BurntSushi/ripgrep">https://github.com/BurntSushi/ripgrep</a><br>debian安装命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install ripgrep</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -254,13 +253,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/05/23/kylin-server-operating-system-v10-install-docker/" rel="prev" title="麒麟高级服务器操作系统V10安装docker">
-                  <i class="fa fa-angle-left"></i> 麒麟高级服务器操作系统V10安装docker
+                <a href="/2026/03/11/openclaw-nginx-config/" rel="prev" title="openclaw配置nginx实现外部ip访问">
+                  <i class="fa fa-angle-left"></i> openclaw配置nginx实现外部ip访问
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/06/07/update-git-remembered-password-after-changing-git-password/" rel="next" title="修改git密码后重置更新git记住的密码">
-                  修改git密码后重置更新git记住的密码 <i class="fa fa-angle-right"></i>
+                <a href="/2026/06/29/windows-install-pi-agent-code/" rel="next" title="windows下安装 pi agent code 实录">
+                  windows下安装 pi agent code 实录 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
