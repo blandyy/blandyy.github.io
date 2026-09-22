@@ -15,10 +15,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"muqi.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null,"show_result":true},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"night"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"muqi.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.29.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"onmobile":false},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":null,"show_result":true},"fold":{"enable":false,"height":500},"language":false,"highlight_theme":"night"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="程序员代码踩坑分享">
 <meta property="og:type" content="website">
@@ -48,7 +48,6 @@
 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
 <script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
 
   
@@ -75,12 +74,7 @@
   <main class="main">
     <div class="column">
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
+  <div class="site-nav-search popup-trigger" aria-label="搜索" role="button">
   </div>
 
   <div class="site-meta">
@@ -92,9 +86,8 @@
     </a>
   </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-    </div>
+  <div class="site-nav-toggle" aria-label="切换导航栏" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
   </div>
 </div>
 
@@ -138,7 +131,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -165,6 +158,94 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2026/09/22/pi-agent-code-use-codegraph-mcp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="穆琪">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="穆琪的博客">
+      <meta itemprop="description" content="程序员代码踩坑分享">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 穆琪的博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/09/22/pi-agent-code-use-codegraph-mcp/" class="post-title-link" itemprop="url">pi-agent安装mcp插件和配置codegraph</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-09-22 07:29:03 / 修改时间：14:35:12" itemprop="dateCreated datePublished" datetime="2026-09-22T07:29:03+08:00">2026-09-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最近Zcode偷代码库的事情闹得沸沸扬扬，也让我重新审视了闭源的ai agent，重新拾起了pi agnet，为了更好的使用，肯定要装一下比较常用的mcp，pi自己是不带mcp接入的，需要使用插件实现。</p>
+<p>本博客安装pi mcp插件，并安装codegraph</p>
+<p>关于Zcode事件：<a target="_blank" rel="noopener" href="https://blog.ferstar.org/posts/zcode-silent-workspace-snapshot-upload/">https://blog.ferstar.org/posts/zcode-silent-workspace-snapshot-upload/</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2026/09/22/pi-agent-code-use-codegraph-mcp/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -995,91 +1076,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://muqi.github.io/2025/09/12/vim-configuration/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="穆琪">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="穆琪的博客">
-      <meta itemprop="description" content="程序员代码踩坑分享">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | 穆琪的博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2025/09/12/vim-configuration/" class="post-title-link" itemprop="url">vim-configuration</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2025-09-12 17:54:03" itemprop="dateCreated datePublished" datetime="2025-09-12T17:54:03+08:00">2025-09-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-10-16 18:00:33" itemprop="dateModified" datetime="2025-10-16T18:00:33+08:00">2025-10-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot; vundle config</span></span><br><span class="line"><span class="string">set nocompatible              &quot;</span> required</span><br><span class="line">filetype off                  <span class="string">&quot; required</span></span><br><span class="line"><span class="string">&quot;</span> <span class="built_in">set</span> the runtime path to include Vundle and initialize</span><br><span class="line"><span class="built_in">set</span> rtp+=~/.vim/bundle/Vundle.vim</span><br><span class="line">call vundle#begin()</span><br><span class="line"><span class="string">&quot; alternatively, pass a path where Vundle should install plugins</span></span><br><span class="line"><span class="string">&quot;</span>call vundle#begin(<span class="string">&#x27;~/some/path/here&#x27;</span>)</span><br><span class="line"><span class="string">&quot; let Vundle manage Vundle, required</span></span><br><span class="line"><span class="string">Plugin &#x27;VundleVim/Vundle.vim&#x27;</span></span><br><span class="line"><span class="string">Plugin &#x27;https://github.com/scrooloose/nerdtree&#x27;</span></span><br><span class="line"><span class="string">Plugin &#x27;kien/rainbow_parentheses.vim&#x27;</span></span><br><span class="line"><span class="string">Plugin &#x27;https://github.com/bling/vim-airline&#x27;</span></span><br><span class="line"><span class="string">&quot;</span> add all your plugins here (note older versions of Vundle</span><br><span class="line"><span class="string">&quot; used Bundle instead of Plugin)</span></span><br><span class="line"><span class="string">&quot;</span> All of your Plugins must be added before the following line</span><br><span class="line">call vundle#end()            <span class="string">&quot; required</span></span><br><span class="line"><span class="string">filetype plugin indent on    &quot;</span> required</span><br><span class="line"><span class="string">&quot; user config</span></span><br><span class="line"><span class="string">&quot;</span> 通用配置</span><br><span class="line">syntax on</span><br><span class="line"><span class="built_in">set</span> ic</span><br><span class="line"><span class="built_in">set</span> hlsearch</span><br><span class="line"><span class="built_in">set</span> encoding=utf-8</span><br><span class="line"><span class="built_in">set</span> fileencodings=utf-8,ucs-bom,GB2312,big5</span><br><span class="line"><span class="built_in">set</span> cursorline</span><br><span class="line"><span class="built_in">set</span> autoindent</span><br><span class="line"><span class="built_in">set</span> smartindent</span><br><span class="line"><span class="built_in">set</span> scrolloff=4</span><br><span class="line"><span class="built_in">set</span> showmatch</span><br><span class="line"><span class="built_in">set</span> nu</span><br><span class="line"><span class="string">&quot; python文件配置</span></span><br><span class="line"><span class="string">let python_highlight_all=1</span></span><br><span class="line"><span class="string">au Filetype python set tabstop=4</span></span><br><span class="line"><span class="string">au Filetype python set softtabstop=4</span></span><br><span class="line"><span class="string">au Filetype python set shiftwidth=4</span></span><br><span class="line"><span class="string">au Filetype python set textwidth=79</span></span><br><span class="line"><span class="string">au Filetype python set expandtab</span></span><br><span class="line"><span class="string">au Filetype python set autoindent</span></span><br><span class="line"><span class="string">au Filetype python set fileformat=unix</span></span><br><span class="line"><span class="string">autocmd Filetype python set foldmethod=indent</span></span><br><span class="line"><span class="string">autocmd Filetype python set foldlevel=99</span></span><br><span class="line"><span class="string">&quot;</span> 分割窗口配置</span><br><span class="line"><span class="built_in">set</span> splitbelow</span><br><span class="line"><span class="built_in">set</span> splitright</span><br><span class="line"><span class="string">&quot; split navigations</span></span><br><span class="line"><span class="string">nnoremap &lt;C-J&gt; &lt;C-W&gt;&lt;C-J&gt;</span></span><br><span class="line"><span class="string">nnoremap &lt;C-K&gt; &lt;C-W&gt;&lt;C-K&gt;</span></span><br><span class="line"><span class="string">nnoremap &lt;C-L&gt; &lt;C-W&gt;&lt;C-L&gt;</span></span><br><span class="line"><span class="string">nnoremap &lt;C-H&gt; &lt;C-W&gt;&lt;C-H&gt;</span></span><br><span class="line"><span class="string">&quot;</span> 代码折叠</span><br><span class="line"><span class="built_in">set</span> foldmethod=indent</span><br><span class="line"><span class="built_in">set</span> foldlevel=99</span><br><span class="line">nnoremap &lt;space&gt; za</span><br><span class="line"><span class="string">&quot; 文件树配置</span></span><br><span class="line"><span class="string">nnoremap &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;</span></span><br><span class="line"><span class="string">autocmd bufenter * if (winnr(&quot;</span>$<span class="string">&quot;) == 1 &amp;&amp; exists(&quot;</span>b:NERDTree<span class="string">&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif</span></span><br><span class="line"><span class="string">&quot;</span> 括号匹配颜色配置</span><br><span class="line"><span class="built_in">let</span> g:rbpt_colorpairs = [</span><br><span class="line">                        \ [<span class="string">&#x27;brown&#x27;</span>,       <span class="string">&#x27;RoyalBlue3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;Darkblue&#x27;</span>,    <span class="string">&#x27;SeaGreen3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkgray&#x27;</span>,    <span class="string">&#x27;DarkOrchid3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkgreen&#x27;</span>,   <span class="string">&#x27;firebrick3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkcyan&#x27;</span>,    <span class="string">&#x27;RoyalBlue3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkred&#x27;</span>,     <span class="string">&#x27;SeaGreen3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkmagenta&#x27;</span>, <span class="string">&#x27;DarkOrchid3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;brown&#x27;</span>,       <span class="string">&#x27;firebrick3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;gray&#x27;</span>,        <span class="string">&#x27;RoyalBlue3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkmagenta&#x27;</span>, <span class="string">&#x27;DarkOrchid3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;Darkblue&#x27;</span>,    <span class="string">&#x27;firebrick3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkgreen&#x27;</span>,   <span class="string">&#x27;RoyalBlue3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkcyan&#x27;</span>,    <span class="string">&#x27;SeaGreen3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;darkred&#x27;</span>,     <span class="string">&#x27;DarkOrchid3&#x27;</span>],</span><br><span class="line">                        \ [<span class="string">&#x27;red&#x27;</span>,         <span class="string">&#x27;firebrick3&#x27;</span>],</span><br><span class="line">                        \ ]</span><br><span class="line"><span class="built_in">let</span> g:rbpt_max = 16</span><br><span class="line"><span class="built_in">let</span> g:rbpt_loadcmd_toggle = 0</span><br><span class="line">au VimEnter * RainbowParenthesesToggle</span><br><span class="line">au Syntax * RainbowParenthesesLoadRound</span><br><span class="line">au Syntax * RainbowParenthesesLoadSquare</span><br><span class="line">au Syntax * RainbowParenthesesLoadBraces</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1110,7 +1106,6 @@
     <span class="toggle-line"></span>
     <span class="toggle-line"></span>
   </div>
-  <div class="sidebar-dimmer"></div>
   <div class="back-to-top" role="button" aria-label="返回顶部">
     <i class="fa fa-arrow-up fa-lg"></i>
     <span>0%</span>
